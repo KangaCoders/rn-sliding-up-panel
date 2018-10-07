@@ -226,7 +226,7 @@ class SlidingUpPanel extends React.Component {
     const {
       toValue,
       easing,
-      onAnimationEnd = () => {},
+      onAnimationEnd = () => {this.props.onAnimationEnd && this.props.onAnimationEnd()},
       duration = DEFAULT_SLIDING_DURATION
     } = options
 
