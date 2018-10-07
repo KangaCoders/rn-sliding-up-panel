@@ -226,7 +226,7 @@ class SlidingUpPanel extends React.Component {
     const {
       toValue,
       easing,
-      onAnimationEnd = () => {this.props.onAnimationEnd && this.props.onAnimationEnd()},
+      onAnimationEnd = () => {},
       duration = DEFAULT_SLIDING_DURATION
     } = options
 
@@ -242,7 +242,7 @@ class SlidingUpPanel extends React.Component {
       {...animationConfig, ...(this.props.animationConfig || {})}
     )
 
-    animation.start(onAnimationEnd)
+    animation.start(()=>{onAnimationEnd(); this.props.onAnimationEnd && this.props.onAnimationEnd();})
   }
 
   _renderBackdrop() {
