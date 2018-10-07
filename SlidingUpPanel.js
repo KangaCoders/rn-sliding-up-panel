@@ -239,7 +239,7 @@ class SlidingUpPanel extends React.Component {
 
     const animation = Animated.timing(
       this._translateYAnimation,
-      animationConfig
+      {...animationConfig, ...(this.props.animationConfig || {})}
     )
 
     animation.start(onAnimationEnd)
